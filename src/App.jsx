@@ -3,10 +3,16 @@ import Button from "./components/UI/Button";
 import Card from "./components/UI/Card";
 
 function App() {
+  function handleClick() {
+    console.log("run");
+  }
+
+  function deleteProduct() {
+    console.log("ürün silindi");
+  }
+
   return (
     <div className="app">
-      {/* <Button title="Sil" addClass="danger" />
-      <Products componentTitle={"Admin Products başlığıdır!!!"} /> */}
       <Card title="Product Card" link="More">
         <p>Product content</p>
         <p>Product content</p>
@@ -15,8 +21,14 @@ function App() {
       <Card title="Profile Card" link="Details">
         <p>Profile content</p>
         <p>Profile content</p>
-        <button className="main-btn danger">Profile content</button>
+        <Button title="Profile" onClick={handleClick} />
       </Card>
+
+      <Button
+        title="Delete Product"
+        addClass="danger"
+        onClick={deleteProduct}
+      />
     </div>
   );
 }
