@@ -6,7 +6,6 @@ function App() {
     <div className="app">
       <Button title="Sil" addClass="danger" />
       <Products componentTitle={"Admin Products başlığıdır!!!"} />
-      <Products componentTitle={"Customer Products başlığır!!!"} />
     </div>
   );
 }
