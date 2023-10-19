@@ -12,5 +12,6 @@
     padding: 20px 10px;
     display: flex;
     flex-direction: column;
+    row-gap: 4px;
 }
 

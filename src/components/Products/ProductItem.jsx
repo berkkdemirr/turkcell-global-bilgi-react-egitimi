@@ -1,3 +1,4 @@
+import Button from "../UI/Button";
 import "./ProductItem.css";
 
 function ProductItem() {
@@ -30,6 +31,7 @@ function ProductItem() {
         <b className="product-title">{productTitle}</b>
         <span className="product-price">{productPrice}₺</span>
         <span className="product-date">{formattedDate}</span>
+        <Button title="Sepete Ekle" />
       </div>
     </div>
   );

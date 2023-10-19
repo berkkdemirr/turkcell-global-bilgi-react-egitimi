@@ -1,17 +1,12 @@
 import ProductItem from "./ProductItem";
 import "./Products.css";
 
-function Products() {
+function Products(props) {
   return (
     <div className="products">
-      <h1>Products List</h1>
+      <h1>{props.componentTitle}</h1>
       <div className="products-list">
-        <ProductItem></ProductItem>
-        <ProductItem></ProductItem>
-        <ProductItem></ProductItem>
-        <ProductItem></ProductItem>
-        <ProductItem></ProductItem>
-        <ProductItem></ProductItem>
+        <ProductItem />
       </div>
     </div>
   );
