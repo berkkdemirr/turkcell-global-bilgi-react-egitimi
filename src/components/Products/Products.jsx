@@ -1,11 +1,35 @@
 import ProductItem from "./ProductItem";
-import { products } from "../../productData";
 import "./Products.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductForm from "./ProductForm";
 
 function Products(props) {
-  const [allProducts, setAllProducts] = useState(products);
+  const [allProducts, setAllProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products");
+        if (res.ok) {
+          const data = await res.json();
+          const formattedData = data.map(({ title, image, price, ...item }) => {
+            return {
+              ...item,
+              productTitle: title.substr(0, 15),
+              imageUrl: image,
+              productPrice: price,
+            };
+          });
+          setAllProducts(formattedData);
+          console.log(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProducts();
+  }, []);
+
   return (
     <div className="products">
       <ProductForm setAllProducts={setAllProducts} />

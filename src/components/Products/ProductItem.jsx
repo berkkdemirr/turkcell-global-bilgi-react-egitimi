@@ -2,7 +2,6 @@ import { useState } from "react";
 import Button from "../UI/Button";
 import ProductInfo from "./ProductInfo";
 import "./ProductItem.css";
-import Counter from "../Counter";
 
 function ProductItem(props) {
   const { item, allProducts, setAllProducts } = props;
@@ -13,7 +12,6 @@ function ProductItem(props) {
   }
 
   function handleDelete() {
-    console.log(item.id);
     const filteredProducts = allProducts.filter(
       (productItem) => productItem.id !== item.id
     );
@@ -26,10 +24,10 @@ function ProductItem(props) {
       <div className="product-bottom">
         <ProductInfo>
           <b className="product-title">{productTitle}</b>
+          <p>{item.description?.slice(0, 50)} </p>
           <span className="product-price">{props.item.productPrice}₺</span>
-          <Counter />
         </ProductInfo>
-        <Button title="Ürün Adı Değiştir" onClick={handleTitleChange} />
+        <Button title="Sepete Ekle" onClick={handleTitleChange} />
         <Button title="Ürünü Sil" addClass="danger" onClick={handleDelete} />
       </div>
     </div>
