@@ -4,20 +4,22 @@ import ProductForm from "./components/Products/ProductForm";
 import Products from "./components/Products/Products";
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(
+    JSON.parse(localStorage.getItem("counter"))
+  );
   const [name, setName] = useState("Emin");
 
   useEffect(() => {
-    console.log("bir kez çalıştı");
+    localStorage.setItem("counter", JSON.stringify(counter));
   }, [counter]);
 
   return (
     <div className="app">
       {/* <Products /> */}
-      {counter}  <br />
+      {counter} <br />
       <button onClick={() => setCounter(counter + 1)}>Arttır</button>
       <br />
-      {name}  <br />
+      {name} <br />
       <button onClick={() => setName("Ahmet")}>İsmi Değiştir</button>
     </div>
   );
