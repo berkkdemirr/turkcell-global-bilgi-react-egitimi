@@ -6,7 +6,6 @@ import ProductForm from "./ProductForm";
 
 function Products(props) {
   const [allProducts, setAllProducts] = useState(products);
-  console.log(allProducts.length);
   return (
     <div className="products">
       <ProductForm setAllProducts={setAllProducts} />
