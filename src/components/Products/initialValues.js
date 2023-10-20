@@ -1,5 +1,5 @@
 export const productInitialValues = {
-  productName: "",
+  productTitle: "",
   productPrice: "",
   imageUrl: "",
 };

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./ProductForm.css";
 import { productInitialValues } from "./initialValues";
+import { products } from "../../productData";
 
-const ProductForm = () => {
+const ProductForm = (props) => {
   const [productData, setProductData] = useState(productInitialValues);
-  const { productName, productPrice, imageUrl } = productData;
+  const { productTitle, productPrice, imageUrl } = productData;
 
   function handleChange(event) {
     const { value, name } = event.target;
@@ -15,6 +16,10 @@ const ProductForm = () => {
     event.preventDefault();
     console.log("post isteği atıldı", productData);
     setProductData(productInitialValues);
+    props.setAllProducts((prevState) => [
+      ...prevState,
+      { ...productData, id: prevState.length + 1 },
+    ]);
   }
 
   return (
@@ -25,10 +30,10 @@ const ProductForm = () => {
           type="text"
           onChange={handleChange}
           placeholder="Ürün Adı Giriniz..."
-          name="productName"
-          value={productName}
+          name="productTitle"
+          value={productTitle}
         />
-        {productName}
+        {productTitle}
       </div>
       <div className="form-input">
         <label>Ürün Fiyatı</label>

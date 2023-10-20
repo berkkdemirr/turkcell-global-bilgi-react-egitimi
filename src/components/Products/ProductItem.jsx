@@ -5,16 +5,11 @@ import "./ProductItem.css";
 import Counter from "../Counter";
 
 function ProductItem(props) {
-  // let productTitle = props.item.productTitle;
   const [productTitle, setProductTitle] = useState(props.item.productTitle);
 
   function handleTitleChange() {
-    // productTitle = "Değiştirildi";
-    // console.log(productTitle);
     setProductTitle(`${productTitle} Değiştirildi`);
   }
-
-  console.log("re-rendered");
 
   return (
     <div className="product-item">

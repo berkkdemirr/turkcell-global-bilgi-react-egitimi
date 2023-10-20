@@ -7,10 +7,10 @@ function App() {
   const [counter, setCounter] = useState(0);
   return (
     <div className="app">
-      <ProductForm />
-      <Counter setCounter={setCounter}  />
-      {counter}
-      {/* <Products /> */}
+      
+      {/* <Counter setCounter={setCounter}  /> */}
+      {/* {counter} */}
+      <Products />
     </div>
   );
 }
