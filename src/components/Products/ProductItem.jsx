@@ -5,10 +5,19 @@ import "./ProductItem.css";
 import Counter from "../Counter";
 
 function ProductItem(props) {
-  const [productTitle, setProductTitle] = useState(props.item.productTitle);
+  const { item, allProducts, setAllProducts } = props;
+  const [productTitle, setProductTitle] = useState(item.productTitle);
 
   function handleTitleChange() {
     setProductTitle(`${productTitle} Değiştirildi`);
+  }
+
+  function handleDelete() {
+    console.log(item.id);
+    const filteredProducts = allProducts.filter(
+      (productItem) => productItem.id !== item.id
+    );
+    setAllProducts(filteredProducts);
   }
 
   return (
@@ -21,6 +30,7 @@ function ProductItem(props) {
           <Counter />
         </ProductInfo>
         <Button title="Ürün Adı Değiştir" onClick={handleTitleChange} />
+        <Button title="Ürünü Sil" addClass="danger" onClick={handleDelete} />
       </div>
     </div>
   );
