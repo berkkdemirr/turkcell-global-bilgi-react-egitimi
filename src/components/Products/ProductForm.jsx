@@ -4,6 +4,7 @@ import { productInitialValues } from "./initialValues";
 
 const ProductForm = () => {
   const [productData, setProductData] = useState(productInitialValues);
+  const { productName, productPrice, imageUrl } = productData;
 
   function handleChange(event) {
     const { value, name } = event.target;
@@ -13,6 +14,7 @@ const ProductForm = () => {
   function handleSubmit(event) {
     event.preventDefault();
     console.log("post isteği atıldı", productData);
+    setProductData(productInitialValues);
   }
 
   return (
@@ -24,7 +26,9 @@ const ProductForm = () => {
           onChange={handleChange}
           placeholder="Ürün Adı Giriniz..."
           name="productName"
+          value={productName}
         />
+        {productName}
       </div>
       <div className="form-input">
         <label>Ürün Fiyatı</label>
@@ -33,7 +37,9 @@ const ProductForm = () => {
           onChange={handleChange}
           placeholder="Ürün Fiyatı Giriniz..."
           name="productPrice"
+          value={productPrice}
         />
+        {productPrice}
       </div>
       <div className="form-input">
         <label>Ürün Görseli</label>
@@ -42,7 +48,9 @@ const ProductForm = () => {
           onChange={handleChange}
           placeholder="Ürün Görseli Giriniz..."
           name="imageUrl"
+          value={imageUrl}
         />
+        <img src={imageUrl} alt="" />
       </div>
       <button className="form-button main-btn">Ürün Ekle</button>
     </form>
