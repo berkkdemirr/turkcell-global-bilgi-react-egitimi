@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../UI/Button";
 import ProductInfo from "./ProductInfo";
+import { FiShoppingCart } from "react-icons/fi";
 import "./ProductItem.css";
 
 function ProductItem(props) {
@@ -27,7 +28,12 @@ function ProductItem(props) {
           <p>{item.description?.slice(0, 50)} </p>
           <span className="product-price">{props.item.productPrice}₺</span>
         </ProductInfo>
-        <Button title="Sepete Ekle" onClick={handleTitleChange} />
+        <Button
+          title="Sepete Ekle"
+          onClick={handleTitleChange}
+          icon={<FiShoppingCart size={16} />}
+        />
+
         <Button title="Ürünü Sil" addClass="danger" onClick={handleDelete} />
       </div>
     </div>
