@@ -1,20 +1,35 @@
+import { useState } from "react";
 import "./ProductForm.css";
 
 const ProductForm = () => {
+  const [productTitle, setProductTitle] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productImageUrl, setProductImageUrl] = useState("");
+
   function titleChangeHandler(event) {
-    console.log(event.target.value);
+    setProductTitle(event.target.value);
   }
 
   function priceChangeHandler(event) {
-    console.log(event.target.value);
+    setProductPrice(event.target.value);
   }
 
   function imageChangeHandler(event) {
-    console.log(event.target.value);
+    setProductImageUrl(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const productData = {
+      title: productTitle,
+      price: productPrice,
+      imageUrl: productImageUrl,
+    };
+    console.log("post isteği atıldı",productData);
   }
 
   return (
-    <form className="product-form">
+    <form className="product-form" onSubmit={handleSubmit}>
       <div className="form-input">
         <label>Ürün Adı</label>
         <input
