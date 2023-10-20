@@ -3,36 +3,16 @@ import "./ProductForm.css";
 import { productInitialValues } from "./initialValues";
 
 const ProductForm = () => {
-  //   const [productTitle, setProductTitle] = useState("");
-  //   const [productPrice, setProductPrice] = useState("");
-  //   const [productImageUrl, setProductImageUrl] = useState("");
   const [productData, setProductData] = useState(productInitialValues);
 
-  function titleChangeHandler(event) {
-    // setProductTitle(event.target.value);
-    setProductData({ ...productData, productName: event.target.value });
-  }
-
-  console.log({ ...productData });
-
-  function priceChangeHandler(event) {
-    // setProductPrice(event.target.value);
-    setProductData({ ...productData, productPrice: event.target.value });
-  }
-
-  function imageChangeHandler(event) {
-    // setProductImageUrl(event.target.value);
-    setProductData({ ...productData, imageUrl: event.target.value });
+  function handleChange(event) {
+    const { value, name } = event.target;
+    setProductData({ ...productData, [name]: value });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    const myProductData = {
-      title: productData.productName,
-      price: productData.productPrice,
-      imageUrl: productData.imageUrl,
-    };
-    console.log("post isteği atıldı", myProductData);
+    console.log("post isteği atıldı", productData);
   }
 
   return (
@@ -41,24 +21,27 @@ const ProductForm = () => {
         <label>Ürün Adı</label>
         <input
           type="text"
-          onChange={titleChangeHandler}
+          onChange={handleChange}
           placeholder="Ürün Adı Giriniz..."
+          name="productName"
         />
       </div>
       <div className="form-input">
         <label>Ürün Fiyatı</label>
         <input
           type="number"
-          onChange={priceChangeHandler}
+          onChange={handleChange}
           placeholder="Ürün Fiyatı Giriniz..."
+          name="productPrice"
         />
       </div>
       <div className="form-input">
         <label>Ürün Görseli</label>
         <input
           type="text"
-          onChange={imageChangeHandler}
+          onChange={handleChange}
           placeholder="Ürün Görseli Giriniz..."
+          name="imageUrl"
         />
       </div>
       <button className="form-button main-btn">Ürün Ekle</button>
