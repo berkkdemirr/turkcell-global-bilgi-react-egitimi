@@ -1,31 +1,38 @@
 import { useState } from "react";
 import "./ProductForm.css";
+import { productInitialValues } from "./initialValues";
 
 const ProductForm = () => {
-  const [productTitle, setProductTitle] = useState("");
-  const [productPrice, setProductPrice] = useState("");
-  const [productImageUrl, setProductImageUrl] = useState("");
+  //   const [productTitle, setProductTitle] = useState("");
+  //   const [productPrice, setProductPrice] = useState("");
+  //   const [productImageUrl, setProductImageUrl] = useState("");
+  const [productData, setProductData] = useState(productInitialValues);
 
   function titleChangeHandler(event) {
-    setProductTitle(event.target.value);
+    // setProductTitle(event.target.value);
+    setProductData({ ...productData, productName: event.target.value });
   }
 
+  console.log({ ...productData });
+
   function priceChangeHandler(event) {
-    setProductPrice(event.target.value);
+    // setProductPrice(event.target.value);
+    setProductData({ ...productData, productPrice: event.target.value });
   }
 
   function imageChangeHandler(event) {
-    setProductImageUrl(event.target.value);
+    // setProductImageUrl(event.target.value);
+    setProductData({ ...productData, imageUrl: event.target.value });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    const productData = {
-      title: productTitle,
-      price: productPrice,
-      imageUrl: productImageUrl,
+    const myProductData = {
+      title: productData.productName,
+      price: productData.productPrice,
+      imageUrl: productData.imageUrl,
     };
-    console.log("post isteği atıldı",productData);
+    console.log("post isteği atıldı", myProductData);
   }
 
   return (
