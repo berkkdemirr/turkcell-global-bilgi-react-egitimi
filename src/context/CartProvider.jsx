@@ -9,12 +9,20 @@ function CartProvider(props) {
     setCartItems((prevState) => [...prevState, item]);
   }
 
+  function removeFromCart(itemId) {
+    const filteredCartItems = cartItems.filter((cartItem) => {
+      return cartItem.id !== itemId;
+    });
+    setCartItems(filteredCartItems);
+  }
+
   return (
     <CartContext.Provider
       value={{
         cartItems,
         setCartItems,
-        addToCart
+        addToCart,
+        removeFromCart,
       }}
     >
       {props.children}

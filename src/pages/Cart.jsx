@@ -9,7 +9,7 @@ const CartPage = () => {
       <h1>Cart Page</h1>
       <div className="products-list">
         {cartItems.map((item) => (
-          <ProductItem item={item} cart />
+          <ProductItem item={item} key={item.id} cart />
         ))}
       </div>
     </Fragment>

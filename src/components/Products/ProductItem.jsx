@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartProvider";
 
 function ProductItem(props) {
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart, cartItems, removeFromCart } = useContext(CartContext);
   const { item, allProducts, setAllProducts } = props;
   const [productTitle] = useState(item.productTitle);
   const findProduct = cartItems.find(
@@ -48,7 +48,7 @@ function ProductItem(props) {
         <Button
           title={props.cart ? "Sepetten Sil" : "Ürünü Sil"}
           addClass="danger"
-          onClick={handleDelete}
+          onClick={props.cart ? () => removeFromCart(item.id) : handleDelete}
         />
         <Button
           title="Ürün Detayına Git"
