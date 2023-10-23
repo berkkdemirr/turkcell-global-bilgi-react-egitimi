@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -6,13 +6,28 @@ const Header = () => {
     <header>
       <ul>
         <li>
-          <Link to="/">Home Page</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Home Page
+          </NavLink>
         </li>
         <li>
-          <Link to="/products">Products Page</Link>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            to="/products"
+          >
+            Products Page
+          </NavLink>
         </li>
         <li>
-          <Link to="/cart">Cart Page</Link>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            to="/cart"
+          >
+            Cart Page
+          </NavLink>
         </li>
       </ul>
     </header>

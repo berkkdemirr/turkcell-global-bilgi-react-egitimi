@@ -1,12 +1,18 @@
-header ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    column-gap: 14px;
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  column-gap: 14px;
 }
 
-header ul li a{
-    color: aqua;
+header ul li a {
+  color: aqua;
+  text-decoration: none;
+}
+
+header ul li a:hover,
+header ul li a.active {
+  text-decoration: underline;
 }
