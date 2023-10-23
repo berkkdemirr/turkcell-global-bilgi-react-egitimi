@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 import ProductInfo from "./ProductInfo";
 import { FiShoppingCart } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { cartActions } from "../../store";
+import { cartActions } from "../../store/cart";
 import { useDispatch, useSelector } from "react-redux";
 import "./ProductItem.css";
 
