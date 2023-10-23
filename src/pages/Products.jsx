@@ -1,11 +1,12 @@
+import { Fragment } from "react"
 import Products from "../components/Products/Products"
 
 const ProductsPage = () => {
   return (
-    <div>
+    <Fragment>
         <h1>Products Page</h1>
         <Products />
-    </div>
+    </Fragment>
   )
 }
 
