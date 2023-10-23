@@ -30,8 +30,8 @@ const Header = () => {
             className={({ isActive }) => (isActive ? "active" : undefined)}
             to="/cart"
           >
-            <span>
-              {cartItems.length}
+            <span className="cart">
+              <span className="cart-length">{cartItems.length}</span>
               <FiShoppingCart size={16} />
             </span>
             Cart Page

@@ -1,21 +1,12 @@
-import Header from "./components/Layout/Header";
-import ProductForm from "./components/Products/ProductForm";
 import HomePage from "./pages/Home";
 import ProductsPage from "./pages/Products";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  createBrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
 import CartPage from "./pages/Cart";
 import ProductDetailPage from "./pages/ProductDetail";
-import { useState } from "react";
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
   return (
     <div className="app">
       <BrowserRouter>

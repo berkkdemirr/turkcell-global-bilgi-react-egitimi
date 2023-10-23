@@ -16,3 +16,15 @@ header ul li a:hover,
 header ul li a.active {
   text-decoration: underline;
 }
+
+header .cart {
+  position: relative;
+}
+
+header .cart-length {
+  font-size: 12px;
+  position: absolute;
+  color: red;
+  top: -10px;
+  right: -5px;
+}
