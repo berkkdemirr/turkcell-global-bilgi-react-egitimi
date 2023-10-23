@@ -1,12 +1,12 @@
+import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
 import "./Products.css";
-import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../context/CartProvider";
+import { useEffect, useState } from "react";
+
 
 function Products(props) {
   const [allProducts, setAllProducts] = useState([]);
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     async function fetchProducts() {

@@ -1,10 +1,9 @@
-import { Fragment, useContext } from "react";
-import { CartContext } from "../context/CartProvider";
+import { Fragment } from "react";
 import ProductItem from "../components/Products/ProductItem";
+import { useSelector } from "react-redux";
 
 const CartPage = () => {
-  // const { cartItems } = useContext(CartContext);
-  const cartItems = []
+  const cartItems = useSelector((state) => state.cart.cartItems);
   return (
     <Fragment>
       <h1>Cart Page</h1>

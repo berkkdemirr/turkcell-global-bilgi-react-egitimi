@@ -3,9 +3,10 @@ import "./Header.css";
 import { FiShoppingCart } from "react-icons/fi";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartProvider";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  // const { cartItems } = useContext(CartContext);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   return (
     <header>
       <ul>
@@ -25,7 +26,7 @@ const Header = () => {
             Products Page
           </NavLink>
         </li>
-        {/* <li>
+        <li>
           <NavLink
             className={({ isActive }) => (isActive ? "active" : undefined)}
             to="/cart"
@@ -36,7 +37,7 @@ const Header = () => {
             </span>
             Cart Page
           </NavLink>
-        </li> */}
+        </li>
       </ul>
     </header>
   );

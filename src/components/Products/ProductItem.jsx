@@ -1,13 +1,16 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Button from "../UI/Button";
 import ProductInfo from "./ProductInfo";
 import { FiShoppingCart } from "react-icons/fi";
-import "./ProductItem.css";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../context/CartProvider";
+import { cartActions } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
+import "./ProductItem.css";
 
 function ProductItem(props) {
-  const { addToCart, cartItems, removeFromCart } = useContext(CartContext);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
+  const { addToCart, removeFromCart } = cartActions;
   const { item, allProducts, setAllProducts } = props;
   const [productTitle] = useState(item.productTitle);
   const findProduct = cartItems.find(
@@ -39,7 +42,7 @@ function ProductItem(props) {
         {!props.cart && (
           <Button
             title="Sepete Ekle"
-            onClick={() => addToCart(item)}
+            onClick={() => dispatch(addToCart({ item }))}
             disabled={findProduct}
             icon={<FiShoppingCart size={16} />}
           />
@@ -48,7 +51,11 @@ function ProductItem(props) {
         <Button
           title={props.cart ? "Sepetten Sil" : "Ürünü Sil"}
           addClass="danger"
-          onClick={props.cart ? () => removeFromCart(item.id) : handleDelete}
+          onClick={
+            props.cart
+              ? () => dispatch(removeFromCart({ productId: item.id }))
+              : handleDelete
+          }
         />
         <Button
           title="Ürün Detayına Git"
