@@ -7,6 +7,12 @@ const counterReducer = (state = { counter: 0, isShow: false }, action) => {
       counter: state.counter + 1,
     };
   }
+  if (action.type === "INCREASE") {
+    return {
+      isShow: state.isShow,
+      counter: state.counter + action.amount,
+    };
+  }
   if (action.type === "SHOW") {
     return {
       counter: state.counter,

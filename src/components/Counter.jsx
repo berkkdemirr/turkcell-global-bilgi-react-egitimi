@@ -9,15 +9,20 @@ function Counter(props) {
     dispatch({ type: "INCREMENT" });
   };
 
+  const increaseHandler = () => {
+    dispatch({ type: "INCREASE", amount: 5 });
+  };
+
   const decrementHandler = () => {
     dispatch({ type: "DECREMENT" });
   };
 
   return (
     <div>
-      <button onClick={incrementHandler}>+</button>
+      <button onClick={incrementHandler}>Increment</button>
+      <button onClick={increaseHandler}>Increase by 5</button>
       <span> {counter} </span>
-      <button onClick={decrementHandler}>-</button> <br />
+      <button onClick={decrementHandler}>Decrement</button> <br />
       <button onClick={() => dispatch({ type: "SHOW" })}>Text Show</button>
       {isShow && <span>SHOW</span>}
     </div>
