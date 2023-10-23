@@ -2,9 +2,16 @@ import ProductItem from "./ProductItem";
 import "./Products.css";
 import { useEffect, useState } from "react";
 import ProductForm from "./ProductForm";
+import Button from "../UI/Button";
+import { useNavigate } from "react-router-dom";
 
 function Products(props) {
   const [allProducts, setAllProducts] = useState([]);
+  const navigate = useNavigate();
+
+  function navigateHandler() {
+    navigate("/cart");
+  }
 
   useEffect(() => {
     async function fetchProducts() {
@@ -47,6 +54,8 @@ function Products(props) {
           ))
         )}
       </div>
+      <span onClick={navigateHandler}>Go to Cart Page</span>
+      <Button title="Go to Home Page" onClick={navigateHandler} />
     </div>
   );
 }
