@@ -11,6 +11,9 @@ const Header = () => {
         <li>
           <Link to="/products">Products Page</Link>
         </li>
+        <li>
+          <Link to="/cart">Cart Page</Link>
+        </li>
       </ul>
     </header>
   );
