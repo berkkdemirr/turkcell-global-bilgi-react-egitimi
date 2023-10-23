@@ -21,7 +21,6 @@ function Products(props) {
             };
           });
           setAllProducts(formattedData);
-          console.log(data);
         }
       } catch (error) {
         console.log(error);
