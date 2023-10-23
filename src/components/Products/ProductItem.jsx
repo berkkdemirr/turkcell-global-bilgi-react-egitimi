@@ -7,9 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartProvider";
 
 function ProductItem(props) {
-  const { setCartItems } = useContext(CartContext);
+  const { addToCart, cartItems } = useContext(CartContext);
   const { item, allProducts, setAllProducts } = props;
   const [productTitle] = useState(item.productTitle);
+  const findProduct = cartItems.find(
+    (productItem) => productItem.id === item.id
+  );
+
   const navigate = useNavigate();
 
   function navigateHandler() {
@@ -23,10 +27,6 @@ function ProductItem(props) {
     setAllProducts(filteredProducts);
   }
 
-  function addToCart() {
-    setCartItems((prevState) => [...prevState, item]);
-  }
-
   return (
     <div className="product-item">
       <img src={props.item.imageUrl} alt="soda" className="product-image" />
@@ -36,13 +36,20 @@ function ProductItem(props) {
           <p>{item.description?.slice(0, 50)} </p>
           <span className="product-price">{props.item.productPrice}₺</span>
         </ProductInfo>
-        <Button
-          title="Sepete Ekle"
-          onClick={addToCart}
-          icon={<FiShoppingCart size={16} />}
-        />
+        {!props.cart && (
+          <Button
+            title="Sepete Ekle"
+            onClick={() => addToCart(item)}
+            disabled={findProduct}
+            icon={<FiShoppingCart size={16} />}
+          />
+        )}
 
-        <Button title="Ürünü Sil" addClass="danger" onClick={handleDelete} />
+        <Button
+          title={props.cart ? "Sepetten Sil" : "Ürünü Sil"}
+          addClass="danger"
+          onClick={handleDelete}
+        />
         <Button
           title="Ürün Detayına Git"
           addClass="info"

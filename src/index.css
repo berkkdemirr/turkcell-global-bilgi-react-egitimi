@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 body {
   background-color: black;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .main-btn {
@@ -12,13 +12,31 @@ body {
   border-radius: 6px;
   color: white;
   cursor: pointer;
+  transition: 0.2s ease all;
 }
 
-.main-btn.danger{
-    background-color: red;
+.main-btn:disabled{
+  opacity: 0.7;
+  cursor: no-drop;
 }
 
-.main-btn.info{
-    background-color: rgb(0, 132, 255);
+.main-btn:hover {
+  opacity: 0.7;
 }
 
+.main-btn.danger {
+  background-color: red;
+}
+
+.main-btn.info {
+  background-color: rgb(0, 132, 255);
+}
+
+.products-list {
+  /* display: flex;
+  gap: 30px;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+}

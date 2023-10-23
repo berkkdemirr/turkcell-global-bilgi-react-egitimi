@@ -1,8 +1,0 @@
-.products-list {
-  /* display: flex;
-  gap: 30px;
-  flex-wrap: wrap; */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 30px;
-}
