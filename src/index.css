@@ -18,3 +18,7 @@ body {
     background-color: red;
 }
 
+.main-btn.info{
+    background-color: rgb(0, 132, 255);
+}
+

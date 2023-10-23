@@ -3,10 +3,17 @@ import Button from "../UI/Button";
 import ProductInfo from "./ProductInfo";
 import { FiShoppingCart } from "react-icons/fi";
 import "./ProductItem.css";
+import { useNavigate } from "react-router-dom";
 
 function ProductItem(props) {
   const { item, allProducts, setAllProducts } = props;
   const [productTitle, setProductTitle] = useState(item.productTitle);
+  const navigate = useNavigate();
+  console.log();
+
+  function navigateHandler() {
+    navigate(`/product-detail/${item.id}`);
+  }
 
   function handleTitleChange() {
     setProductTitle(`${productTitle} Değiştirildi`);
@@ -35,6 +42,11 @@ function ProductItem(props) {
         />
 
         <Button title="Ürünü Sil" addClass="danger" onClick={handleDelete} />
+        <Button
+          title="Ürün Detayına Git"
+          addClass="info"
+          onClick={navigateHandler}
+        />
       </div>
     </div>
   );
