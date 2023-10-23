@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { FiShoppingCart } from "react-icons/fi";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartProvider";
 
 const Header = () => {
+  const { cartItems } = useContext(CartContext);
   return (
     <header>
       <ul>
@@ -28,7 +31,7 @@ const Header = () => {
             to="/cart"
           >
             <span>
-              1
+              {cartItems.length}
               <FiShoppingCart size={16} />
             </span>
             Cart Page

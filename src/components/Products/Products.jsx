@@ -1,17 +1,12 @@
 import ProductItem from "./ProductItem";
 import "./Products.css";
-import { useEffect, useState } from "react";
-import ProductForm from "./ProductForm";
-import Button from "../UI/Button";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartProvider";
 
 function Products(props) {
-  const { cartItems, setCartItems } = props;
   const [allProducts, setAllProducts] = useState([]);
-
-  const navigate = useNavigate();
-
-  console.log(cartItems);
+  const { cartItems } = useContext(CartContext);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -51,7 +46,6 @@ function Products(props) {
               key={item.id}
               setAllProducts={setAllProducts}
               allProducts={allProducts}
-              setCartItems={setCartItems}
             />
           ))
         )}

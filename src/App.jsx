@@ -22,15 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<RootLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route
-              path="/products"
-              element={
-                <ProductsPage
-                  setCartItems={setCartItems}
-                  cartItems={cartItems}
-                />
-              }
-            />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route
               path="/product-detail/:productId"

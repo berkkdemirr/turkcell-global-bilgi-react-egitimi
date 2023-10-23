@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../UI/Button";
 import ProductInfo from "./ProductInfo";
 import { FiShoppingCart } from "react-icons/fi";
 import "./ProductItem.css";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartProvider";
 
 function ProductItem(props) {
-  const { item, allProducts, setAllProducts, setCartItems } = props;
+  const { setCartItems } = useContext(CartContext);
+  const { item, allProducts, setAllProducts } = props;
   const [productTitle] = useState(item.productTitle);
   const navigate = useNavigate();
-
 
   function navigateHandler() {
     navigate(`/product-detail/${item.id}`);
@@ -22,8 +23,8 @@ function ProductItem(props) {
     setAllProducts(filteredProducts);
   }
 
-  function addToCart(){
-    setCartItems((prevState)=> [...prevState, item])
+  function addToCart() {
+    setCartItems((prevState) => [...prevState, item]);
   }
 
   return (
