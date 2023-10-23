@@ -20,7 +20,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<RootLayout cartItems={cartItems} />}>
+          <Route path="/" element={<RootLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route
               path="/products"

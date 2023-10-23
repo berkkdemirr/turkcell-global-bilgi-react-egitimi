@@ -2,10 +2,10 @@ import React, { Fragment } from 'react'
 import Header from '../components/Layout/Header'
 import { Outlet } from 'react-router-dom'
 
-const RootLayout = (props) => {
+const RootLayout = () => {
   return (
     <Fragment>
-        <Header cartItems={props.cartItems} />
+        <Header  />
         <Outlet />
     </Fragment>
   )
