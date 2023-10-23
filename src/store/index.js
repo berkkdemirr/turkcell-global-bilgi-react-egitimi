@@ -3,24 +3,25 @@ import { createStore } from "redux";
 const counterReducer = (state = { counter: 0, isShow: false }, action) => {
   if (action.type === "INCREMENT") {
     return {
-      isShow: state.isShow,
+      ...state,
       counter: state.counter + 1,
     };
   }
   if (action.type === "INCREASE") {
     return {
-      isShow: state.isShow,
+      ...state,
       counter: state.counter + action.amount,
     };
   }
   if (action.type === "SHOW") {
     return {
-      counter: state.counter,
+      ...state,
       isShow: !state.isShow,
     };
   }
   if (action.type === "DECREMENT") {
     return {
+      ...state,
       counter: state.counter - 1,
     };
   }
