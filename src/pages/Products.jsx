@@ -1,11 +1,11 @@
 import { Fragment } from "react"
 import Products from "../components/Products/Products"
 
-const ProductsPage = () => {
+const ProductsPage = (props) => {
   return (
     <Fragment>
         <h1>Products Page</h1>
-        <Products />
+        <Products setCartItems={props.setCartItems} cartItems={props.cartItems} />
     </Fragment>
   )
 }

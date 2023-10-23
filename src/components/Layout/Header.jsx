@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { FiShoppingCart } from "react-icons/fi";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <ul>
@@ -28,7 +28,7 @@ const Header = () => {
             to="/cart"
           >
             <span>
-              1
+              {props.cartItems}
               <FiShoppingCart size={16} />
             </span>
             Cart Page

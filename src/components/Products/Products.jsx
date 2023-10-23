@@ -6,13 +6,12 @@ import Button from "../UI/Button";
 import { useNavigate } from "react-router-dom";
 
 function Products(props) {
+  const { cartItems, setCartItems } = props;
   const [allProducts, setAllProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+
   const navigate = useNavigate();
 
   console.log(cartItems);
-
-
 
   useEffect(() => {
     async function fetchProducts() {
