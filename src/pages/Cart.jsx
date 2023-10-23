@@ -3,7 +3,8 @@ import { CartContext } from "../context/CartProvider";
 import ProductItem from "../components/Products/ProductItem";
 
 const CartPage = () => {
-  const { cartItems } = useContext(CartContext);
+  // const { cartItems } = useContext(CartContext);
+  const cartItems = []
   return (
     <Fragment>
       <h1>Cart Page</h1>

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartProvider";
 
 const Header = () => {
-  const { cartItems } = useContext(CartContext);
+  // const { cartItems } = useContext(CartContext);
   return (
     <header>
       <ul>
@@ -25,7 +25,7 @@ const Header = () => {
             Products Page
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             className={({ isActive }) => (isActive ? "active" : undefined)}
             to="/cart"
@@ -36,7 +36,7 @@ const Header = () => {
             </span>
             Cart Page
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </header>
   );
