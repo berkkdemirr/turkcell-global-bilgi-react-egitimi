@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
+import { FiShoppingCart } from "react-icons/fi";
 
 const Header = () => {
   return (
@@ -26,6 +27,10 @@ const Header = () => {
             className={({ isActive }) => (isActive ? "active" : undefined)}
             to="/cart"
           >
+            <span>
+              1
+              <FiShoppingCart size={16} />
+            </span>
             Cart Page
           </NavLink>
         </li>

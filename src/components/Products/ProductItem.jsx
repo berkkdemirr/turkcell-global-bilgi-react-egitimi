@@ -6,17 +6,13 @@ import "./ProductItem.css";
 import { useNavigate } from "react-router-dom";
 
 function ProductItem(props) {
-  const { item, allProducts, setAllProducts } = props;
-  const [productTitle, setProductTitle] = useState(item.productTitle);
+  const { item, allProducts, setAllProducts, setCartItems } = props;
+  const [productTitle] = useState(item.productTitle);
   const navigate = useNavigate();
-  console.log();
+
 
   function navigateHandler() {
     navigate(`/product-detail/${item.id}`);
-  }
-
-  function handleTitleChange() {
-    setProductTitle(`${productTitle} Değiştirildi`);
   }
 
   function handleDelete() {
@@ -24,6 +20,10 @@ function ProductItem(props) {
       (productItem) => productItem.id !== item.id
     );
     setAllProducts(filteredProducts);
+  }
+
+  function addToCart(){
+    setCartItems((prevState)=> [...prevState, item])
   }
 
   return (
@@ -37,7 +37,7 @@ function ProductItem(props) {
         </ProductInfo>
         <Button
           title="Sepete Ekle"
-          onClick={handleTitleChange}
+          onClick={addToCart}
           icon={<FiShoppingCart size={16} />}
         />
 

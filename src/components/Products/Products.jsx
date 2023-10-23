@@ -7,7 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 function Products(props) {
   const [allProducts, setAllProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
+
+  console.log(cartItems);
 
 
 
@@ -36,8 +39,9 @@ function Products(props) {
 
   return (
     <div className="products">
-      <ProductForm setAllProducts={setAllProducts} />
+      {/* <ProductForm setAllProducts={setAllProducts} /> */}
       <h1>{props.componentTitle}</h1>
+      Sepetteki ürün sayısı: {cartItems.length}
       <div className="products-list">
         {allProducts.length === 0 ? (
           <h2>Hiç ürün yok!!!</h2>
@@ -48,6 +52,7 @@ function Products(props) {
               key={item.id}
               setAllProducts={setAllProducts}
               allProducts={allProducts}
+              setCartItems={setCartItems}
             />
           ))
         )}
