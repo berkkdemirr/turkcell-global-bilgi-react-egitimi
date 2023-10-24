@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import Button from "./UI/Button";
 import * as Yup from "yup";
+import ValidationText from "./UI/ValidationText";
 
 const LoginForm = () => {
   const formik = useFormik({
@@ -35,13 +36,7 @@ const LoginForm = () => {
         />
         <br />
         {formik.touched.email && formik.errors.email ? (
-          <b
-            style={{
-              color: "red",
-            }}
-          >
-            {formik.errors.email}
-          </b>
+          <ValidationText errorText={formik.errors.email} />
         ) : null}
       </div>
       <div className="form-item">
@@ -55,14 +50,8 @@ const LoginForm = () => {
           value={formik.values.password}
         />
         <br />
-        {formik.touched.password && formik.errors.email ? (
-          <b
-            style={{
-              color: "red",
-            }}
-          >
-            {formik.errors.password}
-          </b>
+        {formik.touched.password && formik.errors.password ? (
+          <ValidationText errorText={formik.errors.password} />
         ) : null}
       </div>
       <br />
