@@ -6,7 +6,7 @@ import "./Header.css";
 const Header = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   return (
-    <header>
+    <header className="mt-4">
       <ul>
         <li>
           <NavLink
@@ -29,11 +29,13 @@ const Header = () => {
             className={({ isActive }) => (isActive ? "active" : undefined)}
             to="/cart"
           >
-            <span className="cart">
-              <span className="cart-length">{cartItems.length}</span>
-              <FiShoppingCart size={16} />
+            <span className="flex gap-x-1"> 
+              <span className="cart">
+                <span className="cart-length">{cartItems.length}</span>
+                <FiShoppingCart size={16} />
+              </span>
+              Cart Page
             </span>
-            Cart Page
           </NavLink>
         </li>
       </ul>

@@ -1,14 +1,15 @@
 import { Fragment } from "react";
+import ForwardCounter from "../components/Counter/ForwardCounter";
+import BackwardCounter from "../components/Counter/BackwardCounter";
 
 function HomePage() {
   return (
     <Fragment>
-      <h1
-        className="text-4xl
-       text-red-700 hover:text-[#374895]"
-      >
-        Home Page
-      </h1>
+      <h1 className="text-center my-8 text-4xl">Counter Components</h1>
+      <div className="flex flex-col gap-y-2">
+        <ForwardCounter />
+        <BackwardCounter />
+      </div>
     </Fragment>
   );
 }

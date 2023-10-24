@@ -9,7 +9,7 @@ import LoginPage from "./pages/Login";
 
 function App() {
   return (
-    <div className="app">
+    <div className="app container mx-auto p-4">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RootLayout />}>
