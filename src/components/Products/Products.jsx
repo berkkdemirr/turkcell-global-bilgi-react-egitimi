@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import ProductForm from "./ProductForm";
 import "./Products.css";
@@ -9,28 +9,29 @@ function Products(props) {
   const [allProducts, setAllProducts] = useState([]);
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const res = await fetch("https://fakestoreapi.com/products");
-        if (res.ok) {
-          const data = await res.json();
-          const formattedData = data.map(({ title, image, price, ...item }) => {
-            return {
-              ...item,
-              productTitle: title.substr(0, 15),
-              imageUrl: image,
-              productPrice: price,
-            };
-          });
-          setAllProducts(formattedData);
-        }
-      } catch (error) {
-        console.log(error);
+  const fetchProducts = useCallback(async () => {
+    try {
+      const res = await fetch("https://fakestoreapi.com/products");
+      if (res.ok) {
+        const data = await res.json();
+        const formattedData = data.map(({ title, image, price, ...item }) => {
+          return {
+            ...item,
+            productTitle: title.substr(0, 15),
+            imageUrl: image,
+            productPrice: price,
+          };
+        });
+        setAllProducts(formattedData);
       }
+    } catch (error) {
+      console.log(error);
     }
-    fetchProducts();
   }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   return (
     <div className="products">
@@ -62,5 +63,5 @@ Products.propTypes = {
 };
 
 Products.defaultProps = {
-  componentTitle: "Products Title"
-}
+  componentTitle: "Products Title",
+};
