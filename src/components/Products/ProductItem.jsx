@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Button from "../UI/Button";
 import ProductInfo from "./ProductInfo";
 import { FiShoppingCart } from "react-icons/fi";
@@ -43,7 +44,7 @@ function ProductItem(props) {
           <Button
             title="Sepete Ekle"
             onClick={() => dispatch(addToCart({ item }))}
-            disabled={findProduct}
+            disabled={findProduct && true}
             icon={<FiShoppingCart size={16} />}
           />
         )}
@@ -68,3 +69,16 @@ function ProductItem(props) {
 }
 
 export default ProductItem;
+
+ProductItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    productTitle: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    productPrice: PropTypes.number.isRequired,
+  }),
+  allProducts: PropTypes.array,
+  setAllProducts: PropTypes.func,
+  cart: PropTypes.bool,
+};

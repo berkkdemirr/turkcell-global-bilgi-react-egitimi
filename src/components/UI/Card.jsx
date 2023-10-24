@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./Card.css";
 
 function Card(props) {
@@ -13,3 +14,9 @@ function Card(props) {
 }
 
 export default Card;
+
+Card.propTypes = {
+  title: PropTypes.string,
+  link: PropTypes.string,
+  children: PropTypes.node,
+};

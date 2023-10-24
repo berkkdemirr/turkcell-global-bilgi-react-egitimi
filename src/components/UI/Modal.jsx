@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 const Modal = (props) => {
   const [count, setCount] = useState(0);
@@ -14,8 +15,6 @@ const Modal = (props) => {
     };
   }, [count]);
 
-
-
   return (
     <div>
       <h2>Input boş geçilemez</h2>
@@ -26,3 +25,7 @@ const Modal = (props) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  setIsShowModal: PropTypes.func.isRequired,
+};

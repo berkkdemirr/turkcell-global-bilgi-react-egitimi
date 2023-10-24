@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { productInitialValues } from "./initialValues";
 import Modal from "../UI/Modal";
 import "./ProductForm.css";
@@ -75,3 +76,7 @@ const ProductForm = (props) => {
 };
 
 export default ProductForm;
+
+ProductForm.propTypes = {
+  setAllProducts: PropTypes.func.isRequired
+}

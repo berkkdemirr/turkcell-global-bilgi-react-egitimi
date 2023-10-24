@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
-import "./Products.css";
 import { useEffect, useState } from "react";
-
+import PropTypes from "prop-types";
+import ProductForm from "./ProductForm";
+import "./Products.css";
 
 function Products(props) {
   const [allProducts, setAllProducts] = useState([]);
@@ -33,7 +34,7 @@ function Products(props) {
 
   return (
     <div className="products">
-      {/* <ProductForm setAllProducts={setAllProducts} /> */}
+      <ProductForm setAllProducts={setAllProducts} />
       <h1>{props.componentTitle}</h1>
       Sepetteki ürün sayısı: {cartItems.length}
       <div className="products-list">
@@ -55,3 +56,11 @@ function Products(props) {
 }
 
 export default Products;
+
+Products.propTypes = {
+  componentTitle: PropTypes.string.isRequired,
+};
+
+Products.defaultProps = {
+  componentTitle: "Products Title"
+}
