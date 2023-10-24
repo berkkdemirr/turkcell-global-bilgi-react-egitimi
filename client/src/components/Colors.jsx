@@ -5,7 +5,7 @@ let socket;
 
 const Colors = () => {
   const [color, setColor] = useState("#ffffff");
-  const ENDPOINT = "http://localhost:5000";
+  const ENDPOINT = "https://change-color-socket-server.onrender.com";
 
   useEffect(() => {
     socket = io(ENDPOINT);
