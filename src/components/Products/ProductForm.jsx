@@ -1,8 +1,7 @@
 import { useState } from "react";
-import "./ProductForm.css";
 import { productInitialValues } from "./initialValues";
-import { products } from "../../productData";
 import Modal from "../UI/Modal";
+import "./ProductForm.css";
 
 const ProductForm = (props) => {
   const [productData, setProductData] = useState(productInitialValues);

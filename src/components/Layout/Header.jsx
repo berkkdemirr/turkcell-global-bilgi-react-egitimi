@@ -1,9 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
-import "./Header.css";
+import { NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartProvider";
 import { useSelector } from "react-redux";
+import "./Header.css";
 
 const Header = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
