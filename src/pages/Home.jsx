@@ -1,14 +1,14 @@
-import { Fragment, useState } from "react";
-import UserCard from "../components/UserCard";
+import { Fragment } from "react";
 
 function HomePage() {
-  const [myUsername, setMyUsername] = useState("Emin");
-  console.log("homepage rendered");
   return (
     <Fragment>
-      <h1>Home Page</h1>
-      <UserCard myUsername={"Emin"} />
-      <button onClick={() => setMyUsername("Nur")}>Username Change</button>
+      <h1
+        className="text-4xl
+       text-red-700 hover:text-[#374895]"
+      >
+        Home Page
+      </h1>
     </Fragment>
   );
 }
